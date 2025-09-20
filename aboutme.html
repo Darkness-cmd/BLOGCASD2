@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros - Electricidad CASD</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style2.css">
+  
+  <style>
+    :root {
+        --card-bg: #0f1727;
+        --title-color: #f8fafc;
+        --text-color-muted: #9aa6b2;
+    }
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .member-card {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        padding: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .member-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: #07121a;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border: 4px solid #4cc9ff;
+    }
+    .member-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .member-card h3 {
+        font-size: 1.6em;
+        color: var(--title-color);
+        margin: 0 0 10px 0;
+    }
+    .member-card p {
+        font-size: 1em;
+        line-height: 1.6;
+        color: var(--text-color-muted);
+    }
+    /* --- Ajustes para Móviles --- */
+    @media (max-width: 768px) {
+        .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-transition active"></div>
+
+  <nav class="site">
+    <div class="wrap">
+      <div class="brand">
+        <img src="img/logoblog (1).png" alt="Logo Electricidad CASD" class="logo">
+        Electricidad CASD
+      </div>
+      <div class="menu">
+<a data-link href="indexfinal.html">Inicio</a>
+        <a data-link href="aboutme.html">sobre Nosotros</a>
+        <a data-link href="temas.html" class="active">temas</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+        <h1 data-aos="zoom-in">Conoce al Equipo <span>👥</span></h1>
+        <p class="sub" data-aos="fade-up" data-aos-delay="150">Somos estudiantes del grado 10-05 de la especialidad de Electricidad.</p>
+    </header>
+
+    <section class="section">
+        <div class="team-grid">
+
+            <article class="member-card" data-aos="fade-up">
+                <div class="member-photo">
+                    <img src="img/pablo 1.jpg" alt="Foto de Pablo Alejandro Plata Narváez">
+                </div>
+                <h3>Pablo Alejandro Plata</h3>
+                <p>
+                    "Me apasiona la tecnología, la programación y los videojuegos. Disfruto crear mods, páginas web y experimentar con ideas nuevas. Me considero creativo, curioso y siempre con ganas de aprender."
+                </p>
+            </article>
+
+            <article class="member-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-photo">
+                    <img src="img/dayenis.png" alt="Foto de Shaira Dayennis Gallo Robles">
+                </div>
+                <h3>Shaira Dayennis Gallo</h3>
+                <p>
+                    "Estudio electricidad pero me gusta mucho la gastronomía y la psicología. En mis tiempos libres disfruto escuchar música, ver películas y preparar alguna nueva receta."
+                </p>
+            </article>
+
+            <article class="member-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-photo">
+                    <img src="img/aaron 1.jpg" alt="Foto de Joshua Aaron Grisales Sánchez">
+                </div>
+                <h3>Joshua Aaron Grisales</h3>
+                <p>
+                    "Estudio electricidad en el CASD y en mi tiempo libre disfruto jugando fútbol, cocinando y escuchando música para relajarme."
+                </p>
+            </article>
+
+            <article class="member-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="member-photo">
+                    <img src="img/naela.jpg" alt="Foto de Nicol Naela Gallego León">
+                </div>
+                <h3>Nicol Naela Gallego</h3>
+                <p>
+                    "Me gusta mucho dibujar, porque es una forma de expresar mi creatividad y mis ideas. Además, me ayuda a relajarme y a disfrutar mi tiempo libre."
+                </p>
+            </article>
+
+        </div>
+    </section>
+  </main>
+  
+  <footer>
+    © 2025 DarknessVT666
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

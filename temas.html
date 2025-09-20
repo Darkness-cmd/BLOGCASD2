@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Electricidad CASD</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style2.css">
+  
+  <style>
+    /* Se definen variables para el tema oscuro, por si no las carga el css externo */
+    :root {
+        --card-bg: #0f1727; /* Fondo oscuro para las tarjetas */
+        --title-color: #f8fafc; /* Color blanco/claro para títulos */
+        --text-color-muted: #9aa6b2; /* Color gris claro para texto */
+    }
+
+    .posts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .post-card {
+        background-color: var(--card-bg); /* Aplicando fondo oscuro */
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        display: flex;
+        overflow: hidden;
+    }
+    .post-image {
+        width: 300px;
+        flex-shrink: 0;
+        background-color: #07121a; /* Placeholder más oscuro */
+    }
+    .post-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0.8;
+    }
+    .post-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+    }
+    .post-content h3 {
+        font-size: 1.8em;
+        color: var(--title-color);
+        margin: 0 0 15px 0;
+    }
+    .post-content p {
+        font-size: 1.05em;
+        line-height: 1.7;
+        color: var(--text-color-muted); /* Aplicando color de texto claro */
+        margin-bottom: 20px;
+    }
+
+    /* --- Ajustes para Móviles --- */
+    @media (max-width: 768px) {
+        .post-card { flex-direction: column; }
+        .post-image { width: 100%; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-transition active"></div>
+
+  <nav class="site">
+    <div class="wrap">
+      <div class="brand">
+        <img src="img/logoblog (1).png" alt="Logo Electricidad CASD" class="logo">
+        Electricidad CASD
+      </div>
+      <div class="menu">
+        <a data-link href="indexfinal.html">Inicio</a>
+        <a data-link href="aboutme.html">sobre Nosotros</a>
+        <a data-link href="temas.html" class="active">temas</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+        <h1 data-aos="zoom-in">TEMAS de la Especialidad <span>📚</span></h1>
+        <p class="sub" data-aos="fade-up" data-aos-delay="150">Artículos y guías preparados por estudiantes para estudiantes.</p>
+    </header>
+
+    <section class="section">
+        <div class="posts-list">
+
+            <article class="post-card" data-aos="fade-up">
+                <div class="post-image">
+                    <img src="img/principios electricidad.jpg" alt="Principios básicos de electricidad">
+                </div>
+                <div class="post-content">
+                    <h3>Principios Básicos de Electricidad: La Guía para Estudiantes</h3>
+                    <p>
+                        Esta guía explica qué es la electricidad, el movimiento de electrones y conceptos clave como corriente, voltaje y resistencia. Incluye ejemplos de la Ley de Ohm, una descripción de los componentes más comunes y sus aplicaciones en la vida diaria, ideal para cualquier estudiante que inicia en la especialidad.
+                    </p>
+                </div>
+            </article>
+
+            <article class="post-card" data-aos="fade-up">
+                <div class="post-image">
+                    <img src="img/circuitos-electricos.jpg" alt="Circuitos eléctricos comunes">
+                </div>
+                <div class="post-content">
+                    <h3>Los Circuitos Eléctricos Más Comunes y Cómo Funcionan</h3>
+                    <p>
+                        Aquí se abordan los dos tipos principales de circuitos: en serie y en paralelo. Se analizan sus ventajas, desventajas y aplicaciones prácticas, como en luces navideñas o instalaciones residenciales. También se introduce el concepto de circuitos mixtos para entender su uso en sistemas más complejos.
+                    </p>
+                </div>
+            </article>
+
+            <article class="post-card" data-aos="fade-up">
+                <div class="post-image">
+                    <img src="img/medidas_de_seguridad.png" alt="Medidas de seguridad en electricidad">
+                </div>
+                <div class="post-content">
+                    <h3>Medidas de Seguridad en Electricidad para Estudiantes</h3>
+                    <p>
+                        La seguridad es esencial en los talleres eléctricos. Este artículo identifica los riesgos más comunes, como descargas y cortocircuitos, y revisa las normas básicas de seguridad, incluyendo el uso de herramientas aisladas y el orden en el área de trabajo. El objetivo es crear conciencia y fomentar la prevención.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+  </main>
+  
+  <footer>
+    © 2025 DarknessVT666
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+/* ========== Variables de tema ========== */
+:root{
+  --bg:#0b0f14;
+  --bg-2:#0e1622;
+  --text:#e9edf1;
+  --muted:#a9b3c1;
+  --primary:#ffd21f;   /* amarillo eléctrico */
+  --primary-2:#ff9e00;
+  --accent:#1f6dff;    /* azul eléctrico */
+  --card:#121923;
+  --ring: 0 0 0 3px rgba(255,210,31,.25);
+}
+
+/* ========== Reset y base ========== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(31,109,255,.15), transparent),
+              radial-gradient(1200px 800px at 110% 10%, rgba(255,210,31,.12), transparent),
+              var(--bg);
+  color:var(--text);
+  line-height:1.55;
+}
+
+/* ========== Header / Hero ========== */
+header.hero{
+  position:relative;
+  padding:84px 24px 64px;
+  text-align:center;
+  overflow:hidden;
+}
+header.hero h1{
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing:.3px;
+  margin:0 0 10px;
+  text-shadow:0 0 12px rgba(255,210,31,.25);
+}
+header.hero p.sub{
+  margin:0;
+  color:var(--muted);
+}
+/* Rayos sutiles */
+header.hero::after{
+  content:"";
+  position:absolute; inset:-2px;
+  background:
+    conic-gradient(from 90deg at 50% 10%, rgba(255,210,31,.12), transparent 25%) ,
+    radial-gradient(600px 120px at 50% 0, rgba(31,109,255,.18), transparent 70%);
+  mix-blend-mode:screen;
+  pointer-events:none;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+@keyframes pulseGlow{
+  0%,100%{opacity:.5; filter:blur(0px)}
+  50%{opacity:1; filter:blur(1px)}
+}
+
+/* ========== Nav ========== */
+nav.site{
+  position:sticky; top:0; z-index:50;
+  background: rgba(14,22,34,.75);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+nav .wrap{
+  max-width:1100px; margin:0 auto; padding:10px 16px;
+  display:flex; align-items:center; gap:16px; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+.brand .bolt{display:inline-block; transform: translateY(2px); animation: bolt .9s infinite}
+@keyframes bolt{50%{transform:translateY(2px) rotate(6deg)}}
+
+.menu{display:flex; gap:14px; flex-wrap:wrap}
+.menu a{
+  position:relative;
+  padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text);
+  transition: transform .25s ease, background .25s ease;
+}
+.menu a:hover{ transform: translateY(-2px); background: rgba(255,210,31,.12); box-shadow: var(--ring); }
+.menu a.active{ background: rgba(31,109,255,.18); box-shadow: 0 0 0 1px rgba(31,109,255,.35) inset; }
+.menu a[data-link]::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:8px; height:2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.menu a:hover::after{ transform: scaleX(1); }
+
+/* ========== Secciones ========== */
+section.section{
+  max-width:1100px; margin:48px auto; padding:32px 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+section.alt{
+  background: linear-gradient(180deg, rgba(31,109,255,.06), rgba(255,210,31,.06));
+}
+
+h2.title{
+  margin:0 0 16px; font-size: clamp(22px, 3vw, 34px); color:var(--primary);
+  letter-spacing:.2px;
+}
+
+/* ========== Botones ========== */
+.btn{
+  --h:48px;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  height:var(--h); padding:0 18px; border-radius:14px; cursor:pointer; border:0;
+  color:#0b0f14; font-weight:800; letter-spacing:.3px; text-decoration:none;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  box-shadow: 0 8px 24px rgba(255,210,31,.25);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  position:relative; overflow:hidden;
+}
+.btn:hover{ transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 12px 28px rgba(255,210,31,.35); }
+.btn:active{ transform: translateY(0) scale(.98); }
+.btn .ripple{position:absolute; border-radius:999px; transform:scale(0); animation:ripple .6s ease-out; background:rgba(255,255,255,.45);}
+@keyframes ripple{to{transform:scale(6); opacity:0}}
+
+/* ========== Cards / Grid ========== */
+.grid{ display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+.card{
+  background: var(--card); border:1px solid rgba(255,255,255,.06);
+  border-radius:16px; padding:18px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s;
+  position:relative; overflow:hidden;
+}
+.card:hover{ transform: translateY(-6px); border-color: rgba(255,210,31,.35); box-shadow: 0 16px 40px rgba(31,109,255,.18); }
+.card .bling{
+  position:absolute; inset:auto -20% 0 -20%; height:2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  filter: blur(1px); opacity:.35; animation: sweep 2.4s linear infinite;
+}
+@keyframes sweep{ to{ transform: translateX(100%); } }
+
+/* ========== Footer ========== */
+footer{
+  max-width:1100px; margin:56px auto 40px; padding:16px 12px; color:var(--muted);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* ========== Página: transición entre páginas ========== */
+.page-transition{
+  position:fixed; inset:0; pointer-events:none; z-index:9999;
+  background: radial-gradient(800px 400px at 10% 10%, rgba(31,109,255,.25), transparent 40%),
+              radial-gradient(800px 400px at 90% 90%, rgba(255,210,31,.25), transparent 40%),
+              #0b0f14;
+  transform: translateY(100%);
+}
+.page-transition.active{ pointer-events:auto; transform: translateY(0); transition: transform .55s ease; }
+.page-transition.hide{ transform: translateY(-100%); transition: transform .55s ease; }
+
+/* ========== Utilidades AOS ========== */
+[data-aos]{will-change: transform, opacity}
+
+/* Overlay de transición entre páginas */
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0f0f; /* cámbialo al color que prefieras */
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.page-transition.active {
+  opacity: 1;
+}
+
+.page-transition:not(.active) {
+  opacity: 0;
+  transition-delay: 0.2s;
+}
+
+/* --- Ajuste de imágenes en las cards --- */
+.card img {
+  display: block;
+  max-width: 90%;   /* que no se salga de la card */
+  max-height: 150px; /* ajusta la altura como quieras */
+  margin: 10px auto; /* centra horizontalmente */
+  object-fit: contain; /* evita que se deforme */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espacio entre logo y texto */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.brand .logo {
+  height: 75px; /* ajusta según tu logo */
+  width: auto;
+}
+

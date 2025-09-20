@@ -1,0 +1,121 @@
+/* ========== Cards / Grid ========== */
+.grid{ 
+  display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); 
+}
+.card{
+  background: var(--card); border:1px solid rgba(255,255,255,.06);
+  border-radius:16px; padding:18px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s;
+  position:relative; overflow:hidden;
+}
+.card:hover{ 
+  transform: translateY(-6px); 
+  border-color: rgba(255,210,31,.35); 
+  box-shadow: 0 16px 40px rgba(31,109,255,.18); 
+}
+.card .bling{
+  position:absolute; inset:auto -20% 0 -20%; height:2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  filter: blur(1px); opacity:.35; animation: sweep 2.4s linear infinite;
+}
+@keyframes sweep{ to{ transform: translateX(100%); } }
+
+/* --- 🔥 NUEVO: Vista previa con imagen al hacer hover --- */
+.card .preview {
+  position: absolute;
+  top: -160px; /* aparece flotando arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  z-index: 20;
+}
+
+.card .preview img {
+  width: 220px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* Aparece al pasar el mouse */
+.card:hover .preview {
+  display: block;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+/* --- Sección general --- */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section.alt {
+  background: #f9f9f9;
+}
+
+/* --- Títulos --- */
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* --- Grid de las cards --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Cards --- */
+.card {
+  position: relative;
+  padding: 16px;
+  font-size: 1.1rem;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Preview flotante --- */
+.card .preview {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%, -120%) scale(0.9);
+  width: 240px;
+  max-height: 160px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  background: white;
+  z-index: 20;
+}
+
+.card .preview img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.card:hover .preview {
+  opacity: 1;
+  transform: translate(-50%, -130%) scale(1);
+}
